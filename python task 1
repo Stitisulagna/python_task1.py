@@ -1,0 +1,64 @@
+#Mastermind:Guess an opposing player's numbers.abs
+
+#Build-in library for python
+#randint<-- method that generate random numbers for a range.
+import random
+
+
+# Create function that generates a list of random numbers
+def hidden_list(max_range):
+    hidden_list = []
+    for i in range(4):
+        hidden_list.append(random.randint(1, max_range))
+    return hidden_list
+
+
+mastermind_list = hidden_list(5)
+print(mastermind_list)
+
+# Mastermind game will be run below.
+print("welcome to the mastermind game!")
+print("Try to guess the four secret numbers.\n")
+
+correct = 0
+tries = 0
+while correct < 4:
+    guess1 = int(input("please guess the first number:"))
+    guess2 = int(input("please guess the second number:"))
+    guess3 = int(input("please enter the third number:"))
+    guess4 = int(input("please enter the fourth number:"))
+    tries += 1
+
+    #list = [2, 5, 8, 1]
+    #        0  1  2  3
+    initialpoint = 20
+    if guess1 == mastermind_list[0]:
+        correct += 1
+        print("(guess1)is in right position")
+    if guess2 == mastermind_list[1]:    
+        correct += 1
+        print("(guess2)is in right position")
+    if guess3 == mastermind_list[2]:    
+        correct += 1
+        print("(guess3)is in right position")
+    if guess4 == mastermind_list[3]:    
+        correct += 1
+        print("(guess4)is in right position")
+
+    if correct < 4:
+        print("\nYou guessed " + str(correct) + " number(s) correctly.\n") 
+        correct = 0
+        continue
+        
+    else:
+        all
+
+        if tries == 1:
+            print("\nCongratulation,you guessed all four number!! It took you " + str(tries) + " try.\n")
+            print("total points\n" + str(initialpoint + 5))
+
+        if tries > 1:
+            print("\nCongratulation,you guessed all four number!! It took you " + str(tries) + " try.\n")
+            print("total points\n" + str(initialpoint - (tries - 1) * 2 + 5))
+
+    print("Want to play again?") 
